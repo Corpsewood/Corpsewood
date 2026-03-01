@@ -4,25 +4,51 @@
   <meta charset="UTF-8">
   <title>Corpsewood</title>
   <style>
-    /* Black background, center the image */
+    /* Full black background, center everything vertically */
     body {
       margin: 0;
       height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       background-color: black;
+      color: red;
+      font-family: monospace;
+      text-align: center;
     }
 
-    /* Make the image fit the screen */
+    /* Fullscreen image with fade-in and flicker effect */
     img {
-      max-width: 100%;
-      max-height: 100%;
+      width: 100vw;
+      height: 70vh;
+      object-fit: cover;
+      opacity: 0;
+      animation: fadeIn 2s forwards, flicker 0.5s infinite;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+      20%, 22%, 24%, 55% { opacity: 0.5; }
+    }
+
+    /* Text under the image */
+    #warning-text {
+      margin-top: 20px;
+      font-size: 1.5em;
+      color: red;
     }
   </style>
 </head>
 <body>
-  <!-- Use your actual PNG file name here -->
+  <!-- Spooky image -->
   <img src="jarv-tryckanpassad-120707-8426-sv-c.png" alt="Creepy Image">
+
+  <!-- Warning text -->
+  <div id="warning-text">you're not cleared for access for this area.</div>
 </body>
 </html>
